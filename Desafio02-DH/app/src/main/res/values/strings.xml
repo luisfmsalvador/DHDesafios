@@ -9,4 +9,7 @@
     <string name="nome">Nome</string>
     <string name="repeatPass">Repeat password</string>
     <string name="pratos_principais">Pratos principais</string>
+    <string name="fechamento">"Fecha às "</string>
+    <string name="digital_house_foods">Digital House Foods</string>
+    <string name="registermin">Register</string>
 </resources>

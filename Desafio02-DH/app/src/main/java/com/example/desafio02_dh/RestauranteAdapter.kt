@@ -5,10 +5,14 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 
-class RestauranteAdapter(private val dataSet: List<Restaurante>, private val listener: (Restaurante) -> Unit):RecyclerView.Adapter<RestauranteAdapterHolder>() {
+class RestauranteAdapter(
+    private val dataSet: List<Restaurante>,
+    private val listener: (Restaurante) -> Unit
+) : RecyclerView.Adapter<RestauranteAdapterHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RestauranteAdapterHolder {
-        val inflador = LayoutInflater.from(parent.context).inflate(R.layout.lista_restaurantes,parent,false)
+        val inflador =
+            LayoutInflater.from(parent.context).inflate(R.layout.lista_restaurantes, parent, false)
 
         return RestauranteAdapterHolder(inflador)
     }
@@ -18,7 +22,7 @@ class RestauranteAdapter(private val dataSet: List<Restaurante>, private val lis
     override fun onBindViewHolder(holder: RestauranteAdapterHolder, position: Int) {
         val item = dataSet[position]
         holder.bind(item)
-        holder.itemView.setOnClickListener { listener(item)}
+        holder.itemView.setOnClickListener { listener(item) }
 
     }
 

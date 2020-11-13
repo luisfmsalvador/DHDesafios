@@ -36,7 +36,8 @@ class CardapioFragment : Fragment() {
     ): View? {
         val minhaView = inflater.inflate(R.layout.fragment_cardapio, container, false)
 
-        minhaView.findViewById<ImageView>(R.id.imgRestaurante_fCardapio).setImageResource(R.mipmap.ic_rest1)
+        minhaView.findViewById<ImageView>(R.id.imgRestaurante_fCardapio)
+            .setImageResource(R.mipmap.ic_rest1)
 
         val recyclerView = minhaView.findViewById<RecyclerView>(R.id.listaCardapio)
 
@@ -44,7 +45,8 @@ class CardapioFragment : Fragment() {
 
         val restaurante = Gson().fromJson(json, Restaurante::class.java)
         minhaView.findViewById<TextView>(R.id.txtRestaurante_fCardapio).text = restaurante.nome
-        minhaView.findViewById<ImageView>(R.id.imgRestaurante_fCardapio).setImageResource(restaurante.imagem)
+        minhaView.findViewById<ImageView>(R.id.imgRestaurante_fCardapio)
+            .setImageResource(restaurante.imagem)
 
         val cardapioAdapter = CardapioAdapter(restaurante.cardapio) {
             val bundle = Bundle()
@@ -52,10 +54,10 @@ class CardapioFragment : Fragment() {
             bundle.putString(CARDAPIO_KEY, jsonString)
 
             val navController = Navigation.findNavController(minhaView)
-            navController.navigate(R.id.action_cardapioFragment_to_pratoFragment,bundle)
+            navController.navigate(R.id.action_cardapioFragment_to_pratoFragment, bundle)
         }
 
-        val viewManager = GridLayoutManager(minhaView.context,2)
+        val viewManager = GridLayoutManager(minhaView.context, 2)
         recyclerView.apply {
             setHasFixedSize(true)
             layoutManager = viewManager

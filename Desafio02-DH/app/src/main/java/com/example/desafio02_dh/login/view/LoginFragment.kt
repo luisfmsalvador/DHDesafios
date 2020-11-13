@@ -37,7 +37,7 @@ class LoginFragment : Fragment() {
         }
     }
 
-    fun consiteDadosAutenticacao(emailUsuario:TextView, passwordUsuario:TextView):Boolean {
+    fun consiteDadosAutenticacao(emailUsuario: TextView, passwordUsuario: TextView): Boolean {
         when {
             emailUsuario.text.isEmpty() -> {
                 emailUsuario.error = "Informe o e-mail"
@@ -51,7 +51,7 @@ class LoginFragment : Fragment() {
                 passwordUsuario.error = "Informe a senha"
                 passwordUsuario.requestFocus()
             }
-        else -> return true
+            else -> return true
         }
         return false
     }

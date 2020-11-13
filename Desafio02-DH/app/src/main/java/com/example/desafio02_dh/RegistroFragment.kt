@@ -36,17 +36,33 @@ class RegistroFragment : Fragment() {
             val edtNomeUsuario = view.findViewById<TextView>(R.id.edtNome_fRegister)
             val edtEmailUsuario = view.findViewById<TextView>(R.id.edtEmail_fRegister)
             val edtPasswordUsuario = view.findViewById<TextView>(R.id.edtPassword_fRegister)
-            val edtRepeatPasswordUsuario = view.findViewById<TextView>(R.id.edtRepeatPassword_fRegister)
+            val edtRepeatPasswordUsuario =
+                view.findViewById<TextView>(R.id.edtRepeatPassword_fRegister)
 
-            if (consiteDadosRegistro(edtNomeUsuario, edtEmailUsuario, edtPasswordUsuario,edtRepeatPasswordUsuario)){
-                val usuario = Usuario(edtNomeUsuario.text.toString(),edtEmailUsuario.text.toString(),edtPasswordUsuario.text.toString())
+            if (consiteDadosRegistro(
+                    edtNomeUsuario,
+                    edtEmailUsuario,
+                    edtPasswordUsuario,
+                    edtRepeatPasswordUsuario
+                )
+            ) {
+                val usuario = Usuario(
+                    edtNomeUsuario.text.toString(),
+                    edtEmailUsuario.text.toString(),
+                    edtPasswordUsuario.text.toString()
+                )
 
                 navController.navigate(R.id.action_registroFragment_to_menuFragment)
             }
         }
     }
 
-    fun consiteDadosRegistro(nomeUsuario:TextView, emailUsuario: TextView, passwordUsuario: TextView, repeatPasswordUsuario: TextView):Boolean {
+    fun consiteDadosRegistro(
+        nomeUsuario: TextView,
+        emailUsuario: TextView,
+        passwordUsuario: TextView,
+        repeatPasswordUsuario: TextView
+    ): Boolean {
         when {
             nomeUsuario.text.isEmpty() -> {
                 nomeUsuario.error = "Informe o nome do usuário"

@@ -1,64 +1,60 @@
-<com.google.android.material.card.MaterialCardView
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tool="http://schemas.android.com/tools"
     android:id="@+id/cardRestaurante"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tool="http://schemas.android.com/tools"
-    android:focusable="true"
-    android:clickable="true"
-    app:cardElevation="5dp"
     android:layout_margin="8dp"
+    android:clickable="true"
+    android:focusable="true"
     android:theme="@style/Theme.MaterialComponents.DayNight"
-    app:cardCornerRadius="10dp">
+    app:cardCornerRadius="10dp"
+    app:cardElevation="5dp">
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical">
 
         <ImageView
             android:id="@+id/imgRestaurante_fMenu"
             android:layout_width="match_parent"
             android:layout_height="180dp"
-            android:scaleType="fitXY"
             android:adjustViewBounds="true"
-            />
+            android:scaleType="fitXY" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:layout_marginStart="8dp"
-            android:layout_marginBottom="8dp">
+            android:layout_marginBottom="8dp"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/txtRestaurante_fMenu"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?attr/textAppearanceHeadline6"
-                tool:text="Tony Roma's"
-                android:textSize="20dp"
                 android:textColor="@color/colorCinzaDestaque"
-                />
+                android:textSize="20sp"
+                tool:text="Tony Roma's" />
+
             <TextView
                 android:id="@+id/txtEndereco_fMenu"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:textSize="10dp"
                 android:textAppearance="?attr/textAppearanceBody2"
                 android:textColor="?android:attr/textColorSecondary"
-                />
+                android:textSize="10sp" />
+
             <TextView
                 android:id="@+id/txtHorarioFecha_fMenu"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:textSize="10dp"
                 android:textAppearance="?attr/textAppearanceBody2"
                 android:textColor="?android:attr/textColorSecondary"
-                />
+                android:textSize="10sp" />
 
         </LinearLayout>
     </LinearLayout>
