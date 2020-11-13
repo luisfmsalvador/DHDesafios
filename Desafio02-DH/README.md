@@ -17,7 +17,7 @@ Desenvolvimento
 	- Tela Home;
 	- Tela de Pratos;
 	- Detalhe do cardápio;
-
+	
 Organização
 	- Trabalhar com GitHub
 	- Trabalhar com GIT
