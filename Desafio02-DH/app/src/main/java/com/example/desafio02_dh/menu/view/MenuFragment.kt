@@ -36,7 +36,7 @@ class MenuFragment : Fragment() {
         val restauranteAdapter = RestauranteAdapter(restaurantes) {
             val navController = Navigation.findNavController(minhaView)
             minhaView.findViewById<MaterialCardView>(R.id.cardRestaurante).setOnClickListener {
-                navController.navigate(R.id.cardapioFragment)
+                navController.navigate(R.id.action_menuFragment_to_cardapioFragment)
             }
         }
         val viewManager = LinearLayoutManager(minhaView.context)

@@ -78,7 +78,7 @@ class CardapioFragment : Fragment() {
         val cardapioAdapter = CardapioAdapter(cardapios) {
             val navController = Navigation.findNavController(minhaView)
             minhaView.findViewById<MaterialCardView>(R.id.cardCardapio).setOnClickListener {
-                navController.navigate(R.id.pratoFragment)
+                navController.navigate(R.id.action_cardapioFragment_to_pratoFragment)
             }
         }
 

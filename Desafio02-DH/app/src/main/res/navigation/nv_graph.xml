@@ -12,10 +12,18 @@
         tools:layout="@layout/fragment_login" >
         <action
             android:id="@+id/action_loginFragment_to_registroFragment"
-            app:destination="@id/registroFragment" />
+            app:destination="@id/registroFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
         <action
             android:id="@+id/action_loginFragment_to_menuFragment"
-            app:destination="@id/menuFragment" />
+            app:destination="@id/menuFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
     </fragment>
     <fragment
         android:id="@+id/registroFragment"
@@ -24,7 +32,12 @@
         tools:layout="@layout/fragment_registro" >
         <action
             android:id="@+id/action_registroFragment_to_menuFragment"
-            app:destination="@id/menuFragment" />
+            app:destination="@id/menuFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"
+            />
     </fragment>
     <fragment
         android:id="@+id/menuFragment"
@@ -33,7 +46,11 @@
         tools:layout="@layout/fragment_menu" >
         <action
             android:id="@+id/action_menuFragment_to_cardapioFragment"
-            app:destination="@id/cardapioFragment" />
+            app:destination="@id/cardapioFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
     </fragment>
     <fragment
         android:id="@+id/cardapioFragment"
@@ -42,7 +59,11 @@
         tools:layout="@layout/fragment_cardapio" >
         <action
             android:id="@+id/action_cardapioFragment_to_pratoFragment"
-            app:destination="@id/pratoFragment" />
+            app:destination="@id/pratoFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
     </fragment>
     <fragment
         android:id="@+id/pratoFragment"

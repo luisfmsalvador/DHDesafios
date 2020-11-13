@@ -46,7 +46,7 @@ class RegistroFragment : Fragment() {
         val navController = Navigation.findNavController(view)
 
         view.findViewById<Button>(R.id.btnLogin_fRegister).setOnClickListener {
-            navController.navigate(R.id.menuFragment)
+            navController.navigate(R.id.action_registroFragment_to_menuFragment)
         }
     }
 
