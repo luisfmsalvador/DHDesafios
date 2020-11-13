@@ -38,6 +38,10 @@
             app:popEnterAnim="@anim/from_left"
             app:popExitAnim="@anim/to_right"
             />
+        <action
+            android:id="@+id/action_registroFragment_pop2"
+            app:popUpTo="@id/registroFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/menuFragment"
@@ -64,10 +68,19 @@
             app:exitAnim="@anim/to_left"
             app:popEnterAnim="@anim/from_left"
             app:popExitAnim="@anim/to_right" />
+        <action
+            android:id="@+id/action_cardapioFragment_pop"
+            app:popUpTo="@id/cardapioFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/pratoFragment"
         android:name="com.example.desafio02_dh.PratoFragment"
         android:label="fragment_prato"
-        tools:layout="@layout/fragment_prato" />
+        tools:layout="@layout/fragment_prato" >
+        <action
+            android:id="@+id/action_pratoFragment_pop"
+            app:popUpTo="@id/pratoFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>

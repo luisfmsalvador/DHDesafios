@@ -68,6 +68,10 @@ class CardapioFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val navController = Navigation.findNavController(view)
+        view.findViewById<ImageView>(R.id.imgReturn_fCardapio).setOnClickListener {
+            navController.navigate(R.id.action_cardapioFragment_pop)
+        }
     }
 
     companion object {

@@ -11,4 +11,5 @@
     <color name="colorCinzaDestaque">#1F2D3D</color>
     <color name="colorCinzaPrato">#5A6978</color>
     <color name="colorFundoCinzaClaro">#FDFDFD</color>
+    <color name="colorTransparente">#00FFFFFF</color>
 </resources>

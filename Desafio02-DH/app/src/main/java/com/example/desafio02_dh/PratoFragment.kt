@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.navigation.Navigation
 import com.example.desafio02_dh.listacardapio.model.Cardapio
 import com.example.desafio02_dh.menu.view.MenuFragment
 import com.google.gson.Gson
@@ -31,6 +32,11 @@ class PratoFragment : Fragment() {
         view.findViewById<TextView>(R.id.txtDescricao_fPrato).text = cardapio.descricao
         view.findViewById<TextView>(R.id.txtNome_fPrato).text = cardapio.nome
         view.findViewById<ImageView>(R.id.imgPrato_fPrato).setImageResource(cardapio.imagem)
+
+        val navController = Navigation.findNavController(view)
+        view.findViewById<ImageView>(R.id.imgReturn_fPrato).setOnClickListener {
+            navController.navigate(R.id.action_pratoFragment_pop)
+        }
     }
 
 }

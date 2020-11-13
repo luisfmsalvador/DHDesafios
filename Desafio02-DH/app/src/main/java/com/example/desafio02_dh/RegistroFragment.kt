@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
@@ -27,9 +28,13 @@ class RegistroFragment : Fragment() {
 
         val navController = Navigation.findNavController(view)
 
+        view.findViewById<ImageView>(R.id.imgReturn_fRegistro).setOnClickListener {
+            navController.navigate(R.id.action_registroFragment_pop2)
+        }
+
         view.findViewById<Button>(R.id.btnLogin_fRegister).setOnClickListener {
             val edtNomeUsuario = view.findViewById<TextView>(R.id.edtNome_fRegister)
-            val edtEmailUsuario = view.findViewById<TextView>(R.id.edtEmail_fLogin)
+            val edtEmailUsuario = view.findViewById<TextView>(R.id.edtEmail_fRegister)
             val edtPasswordUsuario = view.findViewById<TextView>(R.id.edtPassword_fRegister)
             val edtRepeatPasswordUsuario = view.findViewById<TextView>(R.id.edtRepeatPassword_fRegister)
 
@@ -67,7 +72,7 @@ class RegistroFragment : Fragment() {
                 passwordUsuario.error = "Informe a confirmação de senha"
                 passwordUsuario.requestFocus()
             }
-            passwordUsuario.text != repeatPasswordUsuario.text -> {
+            passwordUsuario.text.toString() != repeatPasswordUsuario.text.toString() -> {
                 repeatPasswordUsuario.error = "Confirmação de senha incorreta"
                 repeatPasswordUsuario.requestFocus()
             }
