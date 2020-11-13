@@ -31,7 +31,8 @@
             android:textAppearance="?attr/textAppearanceHeadline6"
             android:textColor="@color/colorCinzaPrato"
             android:textSize="15sp"
-            tool:text="Tony Roma's" />
+            tool:text="Tony Roma's"
+            android:gravity="center"/>
     </LinearLayout>
 
 </com.google.android.material.card.MaterialCardView>

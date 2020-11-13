@@ -27,7 +27,7 @@
     </fragment>
     <fragment
         android:id="@+id/registroFragment"
-        android:name="com.example.desafio02_dh.RegistroFragment"
+        android:name="com.example.desafio02_dh.login.view.RegistroFragment"
         android:label="fragment_registro"
         tools:layout="@layout/fragment_registro">
         <action
@@ -57,7 +57,7 @@
     </fragment>
     <fragment
         android:id="@+id/cardapioFragment"
-        android:name="com.example.desafio02_dh.CardapioFragment"
+        android:name="com.example.desafio02_dh.listacardapio.view.CardapioFragment"
         android:label="fragment_cardapio"
         tools:layout="@layout/fragment_cardapio">
         <action
@@ -74,7 +74,7 @@
     </fragment>
     <fragment
         android:id="@+id/pratoFragment"
-        android:name="com.example.desafio02_dh.PratoFragment"
+        android:name="com.example.desafio02_dh.listacardapio.view.PratoFragment"
         android:label="fragment_prato"
         tools:layout="@layout/fragment_prato">
         <action

@@ -27,7 +27,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".PratoFragment">
+        tools:context=".listacardapio.view.PratoFragment">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -64,6 +64,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
                     android:layout_marginTop="20dp"
                     android:textColor="@color/colorCinzaHint"
                     android:textSize="15sp" />
