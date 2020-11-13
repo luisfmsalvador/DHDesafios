@@ -1,0 +1,41 @@
+<com.google.android.material.card.MaterialCardView
+    android:id="@+id/cardCardapio"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tool="http://schemas.android.com/tools"
+    android:clickable="true"
+    android:focusable="true"
+    app:cardElevation="0dp"
+    android:layout_margin="8dp"
+    android:theme="@style/Theme.MaterialComponents.Light"
+    app:cardCornerRadius="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <ImageView
+            android:id="@+id/imgCardapio_fCardapio"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:scaleType="fitXY"
+            android:adjustViewBounds="true"
+            />
+
+            <TextView
+                android:id="@+id/txtPrato_fCardapio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?attr/textAppearanceHeadline6"
+                tool:text="Tony Roma's"
+                android:textSize="15dp"
+                android:textColor="@color/colorCinzaPrato"
+                android:layout_gravity="center"
+                />
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

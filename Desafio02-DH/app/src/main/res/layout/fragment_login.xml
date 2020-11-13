@@ -86,8 +86,6 @@
                 android:layout_gravity="center"
                 android:layout_weight="1"
                 android:layout_marginStart="10dp"/>
-
-
         </LinearLayout>
 
         <LinearLayout
@@ -101,7 +99,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
                 android:textColor="@color/colorCorBranca"
-                android:backgroundTint="@color/colorBotaoCinza"
+                android:backgroundTint="@color/colorCinzaHint"
                 android:text="@string/register"
                 android:layout_gravity="center"/>
         </LinearLayout>

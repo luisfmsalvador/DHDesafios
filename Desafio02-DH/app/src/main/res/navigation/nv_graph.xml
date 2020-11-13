@@ -39,5 +39,14 @@
         android:id="@+id/cardapioFragment"
         android:name="com.example.desafio02_dh.CardapioFragment"
         android:label="fragment_cardapio"
-        tools:layout="@layout/fragment_cardapio" />
+        tools:layout="@layout/fragment_cardapio" >
+        <action
+            android:id="@+id/action_cardapioFragment_to_pratoFragment"
+            app:destination="@id/pratoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/pratoFragment"
+        android:name="com.example.desafio02_dh.PratoFragment"
+        android:label="fragment_prato"
+        tools:layout="@layout/fragment_prato" />
 </navigation>

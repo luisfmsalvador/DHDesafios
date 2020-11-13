@@ -2,13 +2,51 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".CardapioFragment">
+    android:layout_height="wrap_content"
+    tools:context=".CardapioFragment"
+    android:background="@color/colorFundoCinzaClaro">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="cardapio" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
+        <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" >
+
+            <ImageView
+                android:id="@+id/imgRestaurante_fCardapio"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:adjustViewBounds="true"
+                android:scaleType="fitXY"/>
+
+            <TextView
+                android:id="@+id/txtRestaurante_fCardapio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="SSSSSSSS"
+                android:textColor="@color/colorCorBranca"
+                android:layout_marginStart="10dp"
+                android:layout_gravity="bottom"
+                android:textSize="25sp" />
+        </FrameLayout>
+        <TextView
+            android:id="@+id/txtPrato_fCardapio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/pratos_principais"
+            android:textColor="@color/colorCinzaPrato"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
+            android:textSize="25sp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/listaCardapio"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
 </FrameLayout>
