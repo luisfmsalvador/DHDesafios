@@ -15,7 +15,6 @@
         android:orientation="vertical">
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/txtEmail_fLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/email"
@@ -23,6 +22,7 @@
             app:boxStrokeColor="@color/colorBotaoVermelho">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtEmail_fLogin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorPrimary"
@@ -34,13 +34,13 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/txtPassword_fLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/password"
             app:hintTextColor="@color/colorCinzaHint">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtPassword_fLogin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorPrimary"

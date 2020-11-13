@@ -7,29 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import com.example.desafio02_dh.listacardapio.model.Cardapio
+import com.example.desafio02_dh.menu.view.MenuFragment
+import com.google.gson.Gson
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [PratoFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class PratoFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,28 +24,13 @@ class PratoFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        view.findViewById<TextView>(R.id.txtDescricao_fPrato).text = "Teste"
-        view.findViewById<TextView>(R.id.txtNome_fPrato).text = "Prato gostoso"
-        view.findViewById<ImageView>(R.id.imgPrato_fPrato).setImageResource(R.mipmap.ic_rest1)
+
+        val json = arguments?.getString(CardapioFragment.CARDAPIO_KEY)
+        val cardapio = Gson().fromJson(json, Cardapio::class.java)
+
+        view.findViewById<TextView>(R.id.txtDescricao_fPrato).text = cardapio.descricao
+        view.findViewById<TextView>(R.id.txtNome_fPrato).text = cardapio.nome
+        view.findViewById<ImageView>(R.id.imgPrato_fPrato).setImageResource(cardapio.imagem)
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment PratoFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            PratoFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
-    }
 }

@@ -6,12 +6,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.desafio02_dh.listacardapio.model.Cardapio
+import com.example.desafio02_dh.menu.view.MenuFragment
 import com.google.android.material.card.MaterialCardView
+import com.google.gson.Gson
 
 private const val ARG_RESTAURANTE = ""
 
@@ -37,49 +40,19 @@ class CardapioFragment : Fragment() {
 
         val recyclerView = minhaView.findViewById<RecyclerView>(R.id.listaCardapio)
 
-        val cardapios = arrayListOf(
-            Cardapio(
-                "XXXXX",
-                "fdfsfsfsd",
-                R.mipmap.ic_rest1
-            ),
-            Cardapio(
-                "XXXXX",
-                "fdfsfsfsd",
-                R.mipmap.ic_rest1
-            ),
-            Cardapio(
-                "XXXXX",
-                "fdfsfsfsd",
-                R.mipmap.ic_rest1
-            ),
-            Cardapio(
-                "XXXXX",
-                "fdfsfsfsd",
-                R.mipmap.ic_rest1
-            ),
-            Cardapio(
-                "XXXXX",
-                "fdfsfsfsd",
-                R.mipmap.ic_rest1
-            ),
-            Cardapio(
-                "XXXXX",
-                "fdfsfsfsd",
-                R.mipmap.ic_rest1
-            ),
-            Cardapio(
-                "XXXXX",
-                "fdfsfsfsd",
-                R.mipmap.ic_rest1
-            )
-        )
+        val json = arguments?.getString(MenuFragment.RESTAURANTE_KEY)
 
-        val cardapioAdapter = CardapioAdapter(cardapios) {
+        val restaurante = Gson().fromJson(json, Restaurante::class.java)
+        minhaView.findViewById<TextView>(R.id.txtRestaurante_fCardapio).text = restaurante.nome
+        minhaView.findViewById<ImageView>(R.id.imgRestaurante_fCardapio).setImageResource(restaurante.imagem)
+
+        val cardapioAdapter = CardapioAdapter(restaurante.cardapio) {
+            val bundle = Bundle()
+            val jsonString = Gson().toJson(it)
+            bundle.putString(CARDAPIO_KEY, jsonString)
+
             val navController = Navigation.findNavController(minhaView)
-            minhaView.findViewById<MaterialCardView>(R.id.cardCardapio).setOnClickListener {
-                navController.navigate(R.id.action_cardapioFragment_to_pratoFragment)
-            }
+            navController.navigate(R.id.action_cardapioFragment_to_pratoFragment,bundle)
         }
 
         val viewManager = GridLayoutManager(minhaView.context,2)
@@ -98,13 +71,6 @@ class CardapioFragment : Fragment() {
     }
 
     companion object {
-        @JvmStatic
-        fun newInstance(nome: String) =
-            CardapioFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_RESTAURANTE, nome)
-
-                }
-            }
+        const val CARDAPIO_KEY = "CARDAPIO_KEY"
     }
 }

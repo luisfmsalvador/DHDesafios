@@ -27,14 +27,12 @@
                 android:id="@+id/txtRestaurante_fCardapio"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="SSSSSSSS"
                 android:textColor="@color/colorCorBranca"
                 android:layout_marginStart="10dp"
                 android:layout_gravity="bottom"
                 android:textSize="25sp" />
         </FrameLayout>
         <TextView
-            android:id="@+id/txtPrato_fCardapio"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/pratos_principais"

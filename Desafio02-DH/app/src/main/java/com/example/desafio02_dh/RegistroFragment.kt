@@ -5,32 +5,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
+import com.example.desafio02_dh.login.model.Usuario
+import org.w3c.dom.Text
 
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [RegistroFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class RegistroFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -46,28 +28,51 @@ class RegistroFragment : Fragment() {
         val navController = Navigation.findNavController(view)
 
         view.findViewById<Button>(R.id.btnLogin_fRegister).setOnClickListener {
-            navController.navigate(R.id.action_registroFragment_to_menuFragment)
+            val edtNomeUsuario = view.findViewById<TextView>(R.id.edtNome_fRegister)
+            val edtEmailUsuario = view.findViewById<TextView>(R.id.edtEmail_fLogin)
+            val edtPasswordUsuario = view.findViewById<TextView>(R.id.edtPassword_fRegister)
+            val edtRepeatPasswordUsuario = view.findViewById<TextView>(R.id.edtRepeatPassword_fRegister)
+
+            if (consiteDadosRegistro(edtNomeUsuario, edtEmailUsuario, edtPasswordUsuario,edtRepeatPasswordUsuario)){
+                val usuario = Usuario(edtNomeUsuario.text.toString(),edtEmailUsuario.text.toString(),edtPasswordUsuario.text.toString())
+
+                navController.navigate(R.id.action_registroFragment_to_menuFragment)
+            }
         }
     }
 
-
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment RegistroFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            RegistroFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+    fun consiteDadosRegistro(nomeUsuario:TextView, emailUsuario: TextView, passwordUsuario: TextView, repeatPasswordUsuario: TextView):Boolean {
+        when {
+            nomeUsuario.text.isEmpty() -> {
+                nomeUsuario.error = "Informe o nome do usuário"
+                nomeUsuario.requestFocus()
             }
+            emailUsuario.text.isEmpty() -> {
+                emailUsuario.error = "Informe o e-mail"
+                emailUsuario.requestFocus()
+            }
+            !android.util.Patterns.EMAIL_ADDRESS.matcher(emailUsuario.text).matches() -> {
+                emailUsuario.error = "E-mail inválido"
+                emailUsuario.requestFocus()
+            }
+            passwordUsuario.text.isEmpty() -> {
+                passwordUsuario.error = "Informe a senha"
+                passwordUsuario.requestFocus()
+            }
+            passwordUsuario.text.length < 3 -> {
+                passwordUsuario.error = "Senha deve ter ao menos três caracteres"
+                passwordUsuario.requestFocus()
+            }
+            repeatPasswordUsuario.text.isEmpty() -> {
+                passwordUsuario.error = "Informe a confirmação de senha"
+                passwordUsuario.requestFocus()
+            }
+            passwordUsuario.text != repeatPasswordUsuario.text -> {
+                repeatPasswordUsuario.error = "Confirmação de senha incorreta"
+                repeatPasswordUsuario.requestFocus()
+            }
+            else -> return true
+        }
+        return false
     }
 }
