@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.TextView
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.example.desafio03_dh.R
@@ -33,4 +34,22 @@ class LoginFragment : Fragment() {
         return minhaView
     }
 
+    fun consiteDadosAutenticacao(emailUsuario: TextView, passwordUsuario: TextView): Boolean {
+        when {
+            emailUsuario.text.isEmpty() -> {
+                emailUsuario.error = "Informe o e-mail"
+                emailUsuario.requestFocus()
+            }
+            !android.util.Patterns.EMAIL_ADDRESS.matcher(emailUsuario.text).matches() -> {
+                emailUsuario.error = "E-mail inválido"
+                emailUsuario.requestFocus()
+            }
+            passwordUsuario.text.isEmpty() -> {
+                passwordUsuario.error = "Informe a senha"
+                passwordUsuario.requestFocus()
+            }
+            else -> return true
+        }
+        return false
+    }
 }

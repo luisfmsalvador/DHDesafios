@@ -10,9 +10,10 @@ import java.util.*
 class NetworkUtils {
 
     companion object {
-        const val BASE_URL = "http://gateway.marvel.com/v1/public/"
+        const val BASE_URL = "http://gateway.marvel.com"
         const val PUBLIC_KEY = "1c8e0e888a06fbc440c7c601891d5762"
         const val PRIVATE_KEY = "ae5de63d78b3527dc1db915b8137779844dbace5"
+        const val CHARACTER_NAME = "Spider-man"
 
         fun getRetrofitInstance(): Retrofit {
             val httpClient = OkHttpClient.Builder()
