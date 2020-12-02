@@ -7,21 +7,18 @@
     android:background="@color/colorAccent"
     tools:context=".menu.view.DetalheRevistaFragment">
 
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-
             <ImageView
                 android:id="@+id/imgPersonagem_fDetalheRevista"
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
+                android:layout_height="@dimen/dimen_250"
                 android:scaleType="fitXY"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -31,18 +28,22 @@
                 android:id="@+id/imgReturn_fDetalheRevista"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginStart="@dimen/dimen_20"
+                android:layout_marginTop="@dimen/dimen_20"
                 android:src="@drawable/ic_baseline_arrow_back_24"
                 app:layout_constraintStart_toStartOf="@+id/imgPersonagem_fDetalheRevista"
                 app:layout_constraintTop_toTopOf="@+id/imgPersonagem_fDetalheRevista" />
 
             <ImageView
                 android:id="@+id/imgCapaRevista_fDetalheRevista"
-                android:layout_width="140dp"
-                android:layout_height="180dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="100dp"
+                android:layout_width="@dimen/dimen_140"
+                android:layout_height="@dimen/dimen_180"
+                android:layout_marginStart="@dimen/dimen_20"
+                android:layout_marginTop="@dimen/dimen_100"
+                android:background="@color/colorBranco"
+                android:cropToPadding="true"
+                android:padding="@dimen/dimen_2"
+                android:scaleType="fitXY"
                 app:layout_constraintStart_toStartOf="@+id/imgPersonagem_fDetalheRevista"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -50,9 +51,9 @@
                 android:id="@+id/txtTitulo_fDetalheRevista"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="40dp"
-                android:layout_marginEnd="10dp"
+                android:layout_marginStart="@dimen/dimen_10"
+                android:layout_marginTop="@dimen/dimen_40"
+                android:layout_marginEnd="@dimen/dimen_10"
                 android:textColor="@color/colorBranco"
                 android:textSize="@dimen/dimen_20"
                 android:textStyle="bold"
@@ -64,9 +65,9 @@
                 android:id="@+id/txtTexto_fDetalheRevista"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="10dp"
+                android:layout_marginStart="@dimen/dimen_10"
+                android:layout_marginTop="@dimen/dimen_20"
+                android:layout_marginEnd="@dimen/dimen_10"
                 android:gravity="start"
                 android:textColor="@color/colorBranco"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -77,8 +78,8 @@
                 android:id="@+id/txtPublished"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginStart="@dimen/dimen_10"
+                android:layout_marginTop="@dimen/dimen_10"
                 android:text="@string/published"
                 android:textColor="@color/colorBranco"
                 android:textStyle="bold"
@@ -89,7 +90,7 @@
                 android:id="@+id/txtPublicacao_fDetalheRevista"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
+                android:layout_marginStart="@dimen/dimen_5"
                 android:textColor="@color/colorBranco"
                 app:layout_constraintStart_toEndOf="@id/txtPublished"
                 app:layout_constraintTop_toTopOf="@id/txtPublished" />
@@ -98,8 +99,8 @@
                 android:id="@+id/txtPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginStart="@dimen/dimen_10"
+                android:layout_marginTop="@dimen/dimen_10"
                 android:text="@string/price"
                 android:textColor="@color/colorBranco"
                 android:textStyle="bold"
@@ -110,10 +111,9 @@
                 android:id="@+id/txtPrice_fDetalheRevista"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginStart="@dimen/dimen_10"
+                android:layout_marginTop="@dimen/dimen_10"
                 android:textColor="@color/colorBranco"
-                android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@+id/txtPrice"
                 app:layout_constraintTop_toBottomOf="@id/txtPublicacao_fDetalheRevista" />
 
@@ -121,8 +121,8 @@
                 android:id="@+id/txtPage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginStart="@dimen/dimen_10"
+                android:layout_marginTop="@dimen/dimen_10"
                 android:text="@string/pages"
                 android:textColor="@color/colorBranco"
                 android:textStyle="bold"
@@ -133,7 +133,7 @@
                 android:id="@+id/txtPage_fDetalheRevista"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="@dimen/dimen_10"
                 android:textColor="@color/colorBranco"
                 app:layout_constraintStart_toEndOf="@+id/txtPage"
                 app:layout_constraintTop_toTopOf="@+id/txtPage" />

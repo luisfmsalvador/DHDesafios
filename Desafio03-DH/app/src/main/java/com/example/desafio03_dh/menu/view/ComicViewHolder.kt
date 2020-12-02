@@ -8,13 +8,13 @@ import com.example.desafio03_dh.R
 import com.example.desafio03_dh.menu.model.ComicModel
 import com.squareup.picasso.Picasso
 
-class ComicViewHolder(private val view: View): RecyclerView.ViewHolder(view) {
+class ComicViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
     private val imagem = view.findViewById<ImageView>(R.id.imgRevista_fMenu)
     private val numero = view.findViewById<TextView>(R.id.txtNumeroRevista_fMenu)
 
-    fun bind(quadrinho: ComicModel){
+    fun bind(quadrinho: ComicModel) {
         if (quadrinho.numero != 0.0) {
-            numero.text = "# " + quadrinho.numero
+            numero.text = "# " + quadrinho.numero.toInt().toString()
         } else {
             numero.text = "S/N"
         }

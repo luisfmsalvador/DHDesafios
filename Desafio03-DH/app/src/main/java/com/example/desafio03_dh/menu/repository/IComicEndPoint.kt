@@ -9,7 +9,14 @@ import retrofit2.http.Query
 
 interface IComicEndPoint {
     @GET("/v1/public/characters/{characterId}/comics")
-    suspend fun obterQuadrinhos(@Path("characterId") characterId: Int, @Query("format") format:String = "comic", @Query("formatType") formatType:String = "comic", @Query("noVariants") noVariants:Boolean = true): ResponseModel<ComicModel>
+    suspend fun obterQuadrinhos(
+        @Path("characterId") characterId: Int,
+        @Query("format") format: String = "comic",
+        @Query("formatType") formatType: String = "comic",
+        @Query("noVariants") noVariants: Boolean = true,
+        @Query("limit") limit: Int = 18,
+        @Query("offset") offset: Int = 0
+    ): ResponseModel<ComicModel>
 
     companion object {
         val endpoint: IComicEndPoint by lazy {

@@ -6,9 +6,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.desafio03_dh.R
 import com.example.desafio03_dh.menu.model.ComicModel
 
-class ComicAdapter(private var quadrinhos: MutableList<ComicModel>, private val listener: (ComicModel) -> Unit): RecyclerView.Adapter<ComicViewHolder>() {
+class ComicAdapter(
+    private var quadrinhos: MutableList<ComicModel>,
+    private val listener: (ComicModel) -> Unit
+) : RecyclerView.Adapter<ComicViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ComicViewHolder {
-        val inflador = LayoutInflater.from(parent.context).inflate(R.layout.lista_menu, parent, false)
+        val inflador =
+            LayoutInflater.from(parent.context).inflate(R.layout.lista_menu, parent, false)
         return ComicViewHolder(inflador)
     }
 
@@ -19,6 +23,6 @@ class ComicAdapter(private var quadrinhos: MutableList<ComicModel>, private val 
 
         holder.bind(item)
 
-        holder.itemView.setOnClickListener { listener(item)}
+        holder.itemView.setOnClickListener { listener(item) }
     }
 }

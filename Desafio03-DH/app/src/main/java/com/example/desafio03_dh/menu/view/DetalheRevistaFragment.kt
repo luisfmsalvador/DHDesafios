@@ -33,17 +33,22 @@ class DetalheRevistaFragment : Fragment() {
         }
 
         val imagemPersonagem = view.findViewById<ImageView>(R.id.imgPersonagem_fDetalheRevista)
-        val caminhoImagemPersonagem =  arguments?.getString("imgCharacter")
+        val caminhoImagemPersonagem = arguments?.getString("imgCharacter")
 
         Picasso.get()
             .load(caminhoImagemPersonagem)
             .into(imagemPersonagem)
 
-        view.findViewById<TextView>(R.id.txtTitulo_fDetalheRevista).text =arguments?.getString("txtTitulo")?.toUpperCase()
-        view.findViewById<TextView>(R.id.txtTexto_fDetalheRevista).text = arguments?.getString("txtDescricao")
-        view.findViewById<TextView>(R.id.txtPage_fDetalheRevista).text = arguments?.getInt("qtdePaginas").toString()
-        view.findViewById<TextView>(R.id.txtPublicacao_fDetalheRevista).text = arguments?.getString("txtData")
-        view.findViewById<TextView>(R.id.txtPrice_fDetalheRevista).text = arguments?.getDouble("vlPreco").toString()
+        view.findViewById<TextView>(R.id.txtTitulo_fDetalheRevista).text =
+            arguments?.getString("txtTitulo")?.toUpperCase()
+        view.findViewById<TextView>(R.id.txtTexto_fDetalheRevista).text =
+            arguments?.getString("txtDescricao")
+        view.findViewById<TextView>(R.id.txtPage_fDetalheRevista).text =
+            arguments?.getInt("qtdePaginas").toString()
+        view.findViewById<TextView>(R.id.txtPublicacao_fDetalheRevista).text =
+            arguments?.getString("txtData")
+        view.findViewById<TextView>(R.id.txtPrice_fDetalheRevista).text =
+            "$ ${arguments?.getDouble("vlPreco").toString()}"
 
 
         val imagemQuadrinho = view.findViewById<ImageView>(R.id.imgCapaRevista_fDetalheRevista)
@@ -55,10 +60,10 @@ class DetalheRevistaFragment : Fragment() {
 
         imagemQuadrinho.setOnClickListener {
             val bundle = Bundle()
-            bundle.putString("imgComic",caminhoImagemQuadrinho)
+            bundle.putString("imgComic", caminhoImagemQuadrinho)
 
             val navigation = Navigation.findNavController(view)
-            navigation.navigate(R.id.action_detalheRevistaFragment_to_imagemRevistaFragment,bundle)
+            navigation.navigate(R.id.action_detalheRevistaFragment_to_imagemRevistaFragment, bundle)
         }
     }
 }

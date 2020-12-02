@@ -11,10 +11,18 @@
         tools:layout="@layout/fragment_login" >
         <action
             android:id="@+id/action_loginFragment_to_createAccountFragment"
-            app:destination="@id/createAccountFragment" />
+            app:destination="@id/createAccountFragment"
+            app:enterAnim="@anim/from_bottom"
+            app:exitAnim="@anim/to_top"
+            app:popEnterAnim="@anim/from_top"
+            app:popExitAnim="@anim/to_bottom"/>
         <action
             android:id="@+id/action_loginFragment_to_menuFragment"
-            app:destination="@id/menuFragment" />
+            app:destination="@id/menuFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"/>
     </fragment>
     <fragment
         android:id="@+id/createAccountFragment"
@@ -23,7 +31,11 @@
         tools:layout="@layout/fragment_create_account" >
         <action
             android:id="@+id/action_createAccountFragment_to_menuFragment"
-            app:destination="@id/menuFragment" />
+            app:destination="@id/menuFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"/>
     </fragment>
     <fragment
         android:id="@+id/menuFragment"
@@ -32,7 +44,11 @@
         tools:layout="@layout/fragment_menu" >
         <action
             android:id="@+id/action_menuFragment_to_detalheRevistaFragment"
-            app:destination="@id/detalheRevistaFragment" />
+            app:destination="@id/detalheRevistaFragment"
+            app:enterAnim="@anim/from_bottom"
+            app:exitAnim="@anim/to_top"
+            app:popEnterAnim="@anim/from_top"
+            app:popExitAnim="@anim/to_bottom" />
     </fragment>
     <fragment
         android:id="@+id/detalheRevistaFragment"

@@ -10,9 +10,11 @@ import android.widget.TextView
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.example.desafio03_dh.R
+import com.example.desafio03_dh.login.model.Usuario
+import com.google.android.material.textfield.TextInputEditText
 
 class LoginFragment : Fragment() {
-    lateinit var minhaView:View
+    lateinit var minhaView: View
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,15 +30,20 @@ class LoginFragment : Fragment() {
 
         minhaView.findViewById<Button>(R.id.btnLogin_fLogin).setOnClickListener {
             val navigation = Navigation.findNavController(it)
-            navigation.navigate(R.id.action_loginFragment_to_menuFragment)
+
+            val edtUsuario = minhaView.findViewById<TextInputEditText>(R.id.edtEmail_fLogin)
+            val edtPassword = minhaView.findViewById<TextInputEditText>(R.id.edtPassword_fLogin)
+            if (consiteDadosAutenticacao(edtUsuario, edtPassword)) {
+                navigation.navigate(R.id.action_loginFragment_to_menuFragment)
+            }
         }
 
         return minhaView
     }
 
-    fun consiteDadosAutenticacao(emailUsuario: TextView, passwordUsuario: TextView): Boolean {
+    fun consiteDadosAutenticacao(emailUsuario: TextInputEditText, passwordUsuario: TextInputEditText): Boolean {
         when {
-            emailUsuario.text.isEmpty() -> {
+            emailUsuario.text!!.isEmpty() -> {
                 emailUsuario.error = "Informe o e-mail"
                 emailUsuario.requestFocus()
             }
@@ -44,7 +51,7 @@ class LoginFragment : Fragment() {
                 emailUsuario.error = "E-mail inválido"
                 emailUsuario.requestFocus()
             }
-            passwordUsuario.text.isEmpty() -> {
+            passwordUsuario.text!!.isEmpty() -> {
                 passwordUsuario.error = "Informe a senha"
                 passwordUsuario.requestFocus()
             }

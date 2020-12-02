@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AbsListView
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -24,10 +25,14 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 class MenuFragment : Fragment() {
-    private lateinit var _listaAdapter: ComicAdapter
     private var _listaDeQuadrinhos = mutableListOf<ComicModel>()
     private var _idCharacter: Int = 0
     private var _imgCharacter: String = ""
+    lateinit var _viewModel: ComicViewModel
+    private var isScrolling = false
+    var currentItems: Int = 0
+    var totalItems: Int = 0
+    var scrollOutItems: Int = 0
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -64,20 +69,20 @@ class MenuFragment : Fragment() {
                 val navigation = Navigation.findNavController(view)
 
                 val bundle = Bundle()
-                bundle.putInt("idCharacter",_idCharacter)
-                bundle.putString("imgCharacter",_imgCharacter)
-                bundle.putString("imgComic","${it.thumbnail.diretorio}.${it.thumbnail.extensao}")
-                bundle.putString("txtTitulo",it.titulo)
-                bundle.putString("txtDescricao",it.descricao)
-                bundle.putInt("qtdePaginas",it.paginas)
-                bundle.putString("txtData",buscaDataPublicacao(it.datas))
-                bundle.putDouble("vlPreco",buscaPreco(it.precos))
+                bundle.putInt("idCharacter", _idCharacter)
+                bundle.putString("imgCharacter", _imgCharacter)
+                bundle.putString("imgComic", "${it.thumbnail.diretorio}.${it.thumbnail.extensao}")
+                bundle.putString("txtTitulo", it.titulo)
+                bundle.putString("txtDescricao", it.descricao)
+                bundle.putInt("qtdePaginas", it.paginas)
+                bundle.putString("txtData", buscaDataPublicacao(it.datas))
+                bundle.putDouble("vlPreco", buscaPreco(it.precos))
 
                 navigation.navigate(R.id.action_menuFragment_to_detalheRevistaFragment, bundle)
             }
 
             val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerMenu)
-            val manager = GridLayoutManager(view.context,3)
+            val manager = GridLayoutManager(view.context, 3)
 
             recyclerView.apply {
                 setHasFixedSize(true)
@@ -86,14 +91,16 @@ class MenuFragment : Fragment() {
                 adapter = listaAdapter
 
             }
+
         })
+
 
         _viewModelPersonagem.obterLista()
         _viewModel.obterLista()
     }
 
-    fun buscaPreco(precos: List<PriceModel>):Double {
-        for(precos: PriceModel in precos){
+    fun buscaPreco(precos: List<PriceModel>): Double {
+        for (precos: PriceModel in precos) {
             if (precos.tipo == "onsaleDate" || precos.tipo == "printPrice") {
                 return precos.price
             }
@@ -101,18 +108,18 @@ class MenuFragment : Fragment() {
         return 0.0
     }
 
-    fun buscaDataPublicacao(datas: List<DateModel>):String{
+    fun buscaDataPublicacao(datas: List<DateModel>): String {
         val formato = SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH)
         val formatoExtenso = SimpleDateFormat("MMMM dd, yyyy", Locale.ENGLISH)
         lateinit var dataFormatada: Date
-        try{
-            for(data: DateModel in datas){
+        try {
+            for (data: DateModel in datas) {
                 if (data.tipo == "onsaleDate") {
                     val dataPublicacao = formato.parse(data.data)
                     return formatoExtenso.format(dataPublicacao).capitalize()
                 }
             }
-        } catch (e: Exception){
+        } catch (e: Exception) {
             return ""
         }
         return ""

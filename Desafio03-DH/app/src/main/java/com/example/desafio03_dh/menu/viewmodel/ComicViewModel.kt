@@ -9,7 +9,7 @@ import kotlinx.coroutines.Dispatchers
 
 class ComicViewModel(
     private val repository: ComicRepository
-): ViewModel() {
+) : ViewModel() {
     var comics: List<ComicModel> = listOf()
 
     fun obterLista(characterId: Int = 1009610) = liveData(Dispatchers.IO) {
